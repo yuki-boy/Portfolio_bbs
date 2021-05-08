@@ -25,6 +25,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Post Route
 Route::get('/timeline', [PostController::class, 'Timeline'])->name('posts.timeline');
 Route::get('/postcreate', [PostController::class, 'PostCreate'])->name('posts.create');
-Route::post('/post/add', [PostController::class, 'PostAdd'])->name('posts.add');
+Route::post('/post/add', [PostController::class, 'PostSave'])->name('posts.save');
 
 
