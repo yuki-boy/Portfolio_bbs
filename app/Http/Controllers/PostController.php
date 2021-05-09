@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Auth;
+use DB;
 
 class PostController extends Controller
 {
     public function Timeline(){
         $allPost = Post::latest()->paginate(10);
+        // $users = DB::table('users')->where('id',$id)->first();
 
         return view('posts.timeline', compact('allPost'));
     }

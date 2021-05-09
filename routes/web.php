@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,11 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/timeline', [PostController::class, 'Timeline'])->name('posts.timeline');
     Route::get('/postcreate', [PostController::class, 'PostCreate'])->name('posts.create');
     Route::post('/postsave', [PostController::class, 'PostSave'])->name('posts.save');
+
+
+
+    // User Controller Route
+    Route::get('/mypage/{user_id}', [UserController::class, 'Mypage'])->name('mypage');
 
 
 

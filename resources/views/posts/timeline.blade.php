@@ -11,6 +11,19 @@
   </a>
 </div>
 
+<br>
+
+<div>
+  <!-- <a href="{{ route('mypage', ['user_id' => Auth::user()->id]) }}"> -->
+  <a href="{{ route('mypage',Auth::user()->id) }}">
+  <button type="button" class="btn btn-secondary btn-primaryvbtn-fw">
+  マイページ
+  </button>
+  </a>
+</div>
+
+
+
 
 
 @endsection
