@@ -2,9 +2,9 @@
 @section('content')
 
 <div>
-  <form action="{{ route('posts.save') }}" method="POST">
+  <form action="{{ route('posts.save') }}" method="post">
   @csrf
-    <textarea name="body" cols="30" rows="10" placeholder="140字以内で投稿して下さい"></textarea><br>
+    <textarea name="body" cols="30" rows="10" placeholder="140字以内で投稿して下さい">{{ old('body') }}</textarea><br>
 
     @if($errors->has('body'))
     <span>{{ $errors->first('body') }}</span><br>
