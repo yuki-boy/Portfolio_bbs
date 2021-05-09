@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +17,25 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Auth::routes();
+
+Route::group(['middleware' => ['auth']], function(){
+
+    
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('posts.timeline');
+    
+    // Post Route
+    Route::get('/timeline', [PostController::class, 'Timeline'])->name('posts.timeline');
+    Route::get('/postcreate', [PostController::class, 'PostCreate'])->name('posts.create');
+    Route::post('/postsave', [PostController::class, 'PostSave'])->name('posts.save');
+
+
+
+    // User Controller Route
+    Route::get('/mypage/{user_id}', [UserController::class, 'Mypage'])->name('mypage');
+
+
+
 });
