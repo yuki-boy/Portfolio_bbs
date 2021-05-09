@@ -20,11 +20,16 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('posts.timeline');
+Route::group(['middleware' => ['auth']], function(){
 
-// Post Route
-Route::get('/timeline', [PostController::class, 'Timeline'])->name('posts.timeline');
-Route::get('/postcreate', [PostController::class, 'PostCreate'])->name('posts.create');
-Route::post('/post/add', [PostController::class, 'PostSave'])->name('posts.save');
+    
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('posts.timeline');
+    
+    // Post Route
+    Route::get('/timeline', [PostController::class, 'Timeline'])->name('posts.timeline');
+    Route::get('/postcreate', [PostController::class, 'PostCreate'])->name('posts.create');
+    Route::post('/postsave', [PostController::class, 'PostSave'])->name('posts.save');
 
 
+
+});

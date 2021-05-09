@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Auth;
 
 class PostController extends Controller
 {
@@ -18,17 +19,20 @@ class PostController extends Controller
     }
 
     public function PostSave(Request $request){
-        $this->validate($request, [
+        $validatedDate = $request->validate([
             'user_id' => 'required',
             'body' => 'required|max:140',
+        ],
+        [
+            'body.required' => '140字以内で投稿して下さい',
         ]);
 
         $post = new Post();
-        // $post->user_id = Auth::user()->id;
+        $post->user_id = Auth::user()->id;
         $post->body = $request->body;
         $post->save();
 
-        return redirect('/timeline');
+        return redirect('timeline');
     }
 
 }
