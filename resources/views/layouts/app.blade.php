@@ -27,7 +27,7 @@
                     {{ config('app.name', 'Laravel') }}
                 </a>
 
-                <a class="navbar-brand" href="{{ route('mypage',Auth::user()->id) }}">
+                <a class="navbar-brand" href="">
                     マイページ
                 </a>
 

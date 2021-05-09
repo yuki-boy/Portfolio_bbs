@@ -24,7 +24,7 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function(){
 
     
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('posts.timeline');
+    // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('posts.timeline');
     
     // Post Route
     Route::get('/timeline', [PostController::class, 'Timeline'])->name('posts.timeline');
