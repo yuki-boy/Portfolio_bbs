@@ -22,6 +22,15 @@
   </a>
 </div>
 
+@foreach($allPost as $eachPost)
+  <div class="card m-4">
+    <div class="card-body">
+      {{ $eachPost->user->name }}<br>
+      {{ $eachPost->body }}<br>
+    </div>
+  </div>
+@endforeach
+
 
 
 
