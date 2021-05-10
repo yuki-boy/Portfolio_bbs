@@ -14,13 +14,22 @@
 <br>
 
 <div>
-  <!-- <a href="{{ route('mypage', ['user_id' => Auth::user()->id]) }}"> -->
-  <a href="{{ route('mypage',Auth::user()->id) }}">
+  <a href="{{ route('mypage', ['user_id' => Auth::user()->id]) }}">
+  <!-- <a href="{{ route('mypage',Auth::user()->id) }}"> -->
   <button type="button" class="btn btn-secondary btn-primaryvbtn-fw">
   マイページ
   </button>
   </a>
 </div>
+
+@foreach($allPost as $eachPost)
+  <div class="card m-4">
+    <div class="card-body">
+      {{ $eachPost->user->name }}<br>
+      {{ $eachPost->body }}<br>
+    </div>
+  </div>
+@endforeach
 
 
 

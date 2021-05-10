@@ -24,10 +24,10 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('posts.timeline') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    タイムライン
                 </a>
-
-                <a class="navbar-brand" href="{{ route('mypage',Auth::user()->id) }}">
+                
+                <a class="navbar-brand" href="">
                     マイページ
                 </a>
 
