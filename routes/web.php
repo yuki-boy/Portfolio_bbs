@@ -30,6 +30,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/timeline', [PostController::class, 'Timeline'])->name('posts.timeline');
     Route::get('/postcreate', [PostController::class, 'PostCreate'])->name('posts.create');
     Route::post('/postsave', [PostController::class, 'PostSave'])->name('posts.save');
+    Route::get('/detail/{post_id}', [PostController::class, 'PostDetail'])->name('posts.detail');
 
 
 

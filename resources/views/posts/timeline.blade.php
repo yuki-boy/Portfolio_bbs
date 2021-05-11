@@ -25,8 +25,11 @@
 @foreach($allPost as $eachPost)
   <div class="card m-4">
     <div class="card-body">
-      {{ $eachPost->user->name }}<br>
+      {{ $eachPost->name }}<br>
       {{ $eachPost->body }}<br>
+      
+      <a href="{{ route('posts.detail', ['post_id' => $eachPost->id]) }}">
+      <button type="button" class="btn btn-secondary btn-sm">詳細</button></a>
     </div>
   </div>
 @endforeach
