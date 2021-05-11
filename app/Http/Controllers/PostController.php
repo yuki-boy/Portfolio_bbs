@@ -45,8 +45,8 @@ class PostController extends Controller
 
     public function PostDetail($post_id)
     {
-        // $post_detail = Post::with('User')->find((int)$post_id);
-        return view('posts.detail');
+        $post_detail = Post::with('User')->find($post_id);
+        return view('posts.detail',compact('post_detail'));
     }
 
 }
