@@ -13,8 +13,11 @@ class PostController extends Controller
 {
     public function Timeline()
     {
-        $allPost = Post::latest()->paginate();
-
+        $allPost = Post::select('posts.id', 'posts.body', 'posts.user_id', 'users.name')
+        ->join('users','users.id','=','posts.user_id')
+        ->orderBy('posts.id','desc')
+        ->paginate();
+        // dd($allPost);
         return view('posts.timeline', compact('allPost'));
     }
 
@@ -38,6 +41,12 @@ class PostController extends Controller
         $post->save();
 
         return redirect('timeline');
+    }
+
+    public function PostDetail($post_id)
+    {
+        // $post_detail = Post::with('User')->find((int)$post_id);
+        return view('posts.detail');
     }
 
 }
