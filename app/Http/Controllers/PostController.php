@@ -40,13 +40,21 @@ class PostController extends Controller
         $post->body = $request->body;
         $post->save();
 
-        return redirect('timeline');
+        return redirect('timeline')->with('success', '投稿しました');
     }
 
     public function PostDetail($post_id)
     {
         $post_detail = Post::with('User')->find($post_id);
         return view('posts.detail',compact('post_detail'));
+    }
+
+    public function PostDelete($post_id)
+    {
+        $post_delete = Post::find($post_id);
+        $post_delete->delete();
+        
+        return redirect()->route('posts.timeline')->with('success', '投稿を削除しました');
     }
 
 }
