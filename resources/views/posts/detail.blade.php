@@ -10,7 +10,7 @@
 
     @if($post_detail->user_id == Auth::id())
     <a href="{{ route('posts.delete', ['post_id' => $post_detail->id]) }}">
-    <button type="button" class="btn btn-secondary btn-sm">削除</button></a>
+    <button type="button" class="btn btn-secondary btn-sm"onclick="return confirm('削除しますか？')">削除</button></a>
     @endif
 
   </div>
