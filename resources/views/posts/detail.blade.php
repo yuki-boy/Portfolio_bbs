@@ -16,6 +16,10 @@
   </div>
 </div>
 
+<h2>コメント</h2><br>
+
+
+
 <form method="post" action="{{ route('comments.save', ['post_id' => $post_detail->id]) }}">
   @csrf
   <input name="post_id" type="hidden" value="{{ $post_detail->id }}">
