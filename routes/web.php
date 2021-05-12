@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,9 +36,11 @@ Route::group(['middleware' => ['auth']], function(){
 
 
 
-    // User Controller Route
+    // User Route
     Route::get('/mypage/{user_id}', [UserController::class, 'Mypage'])->name('mypage');
 
 
+    // Comment Route
+    Route::post('/detail/{post_id}/commentsave', [CommentController::class, 'CommentSave'])->name('comments.save');
 
 });
