@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\LikeController;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use DB;
@@ -17,7 +18,7 @@ class PostController extends Controller
         ->join('users','users.id','=','posts.user_id')
         ->orderBy('posts.id','desc')
         ->paginate();
-        // dd($allPost);
+
         return view('posts.timeline', compact('allPost'));
     }
 
