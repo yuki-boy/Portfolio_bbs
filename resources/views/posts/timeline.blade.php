@@ -36,9 +36,17 @@
     <div class="card-body">
       {{ $eachPost->name }}<br>
       {{ $eachPost->body }}<br>
-      
+
+    @if($eachPost->Like_Check())
+      <a href="{{ route('unlike', ['post_id' => $eachPost->id, 'user_id' => $eachPost->user_id]) }}"><i class="fa fa-star" aria-hidden="true" style="color:red"></i></a>
+    @else
+      <a href="{{ route('like', ['post_id' => $eachPost->id, 'user_id' => $eachPost->user_id]) }}"><i class="fa fa-star" aria-hidden="true" style="color:grey"></i></a>
+    @endif
+
+
       <a href="{{ route('posts.detail', ['post_id' => $eachPost->id]) }}">
-      <button type="button" class="btn btn-secondary btn-sm">詳細</button></a>
+      <button type="button" class="btn btn-secondary btn-sm" style="float: right;">詳細</button></a>
+
     </div>
   </div>
 @endforeach
