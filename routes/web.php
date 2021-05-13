@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\LikeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,13 +35,14 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/detail/{post_id}', [PostController::class, 'PostDetail'])->name('posts.detail');
     Route::get('/delete/{post_id}', [PostController::class, 'PostDelete'])->name('posts.delete');
 
-
-
     // User Route
     Route::get('/mypage/{user_id}', [UserController::class, 'Mypage'])->name('mypage');
 
-
     // Comment Route
     Route::post('/detail/{post_id}/commentsave', [CommentController::class, 'CommentSave'])->name('comments.save');
+
+    // Like Route
+    Route::get('/like/{post_id}', [LikeController::class, 'Like'])->name('like');
+    Route::get('/unlike/{post_id}', [LikeController::class, 'Unlike'])->name('unlike');
 
 });
