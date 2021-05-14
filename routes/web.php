@@ -39,6 +39,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/mypage/{user_id}', [UserController::class, 'Mypage'])->name('mypage');
 
     // Comment Route
+    Route::get('/commentcreate/{post_id}', [CommentController::class, 'CommentCreate'])->name('comments.create');
     Route::post('/detail/{post_id}/commentsave', [CommentController::class, 'CommentSave'])->name('comments.save');
 
     // Like Route
