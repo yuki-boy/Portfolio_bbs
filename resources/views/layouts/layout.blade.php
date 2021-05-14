@@ -25,11 +25,21 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('posts.timeline') }}">
+                <button type="button" class="btn btn-secondary btn-primaryvbtn-fw">
                     タイムライン
+                </button>
                 </a>
                 
                 <a class="navbar-brand" href="{{ route('mypage', ['user_id' => Auth::user()->id]) }}">
+                <button type="button" class="btn btn-secondary btn-primaryvbtn-fw">
                     マイページ
+                </button>
+                </a>
+
+                <a href="{{ route('posts.create') }}">
+                <button type="button" class="btn btn-secondary btn-primaryvbtn-fw">
+                投稿する
+                </button>
                 </a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
