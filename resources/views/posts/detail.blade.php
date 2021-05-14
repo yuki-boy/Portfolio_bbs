@@ -1,6 +1,15 @@
 @extends('layouts.layout')
 @section('content')
 
+@if(session('success'))
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{ session('success') }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+@endif
+
 <div class="card m-4">
   <div class="card-body">
     ユーザー名：{{ $post_detail->user->name }}<br>
@@ -9,24 +18,31 @@
     投稿：{{ $post_detail->body }}<br>
 
     @if($post_detail->user_id == Auth::id())
-    <a href="{{ route('posts.delete', ['post_id' => $post_detail->id]) }}">
+    <a href="{{ route('posts.delete', ['post_id' => $post_detail->id]) }}" style="float: right;">
     <button type="button" class="btn btn-secondary btn-sm"onclick="return confirm('削除しますか？')">削除</button></a>
     @endif
 
   </div>
 </div>
 
-<h2>コメント</h2><br>
+<div class="card m-4">
+  <div class="card-body">
+    <h2>コメント</h2><br>
+    @forelse($post_detail->comments as $comment)
+    {{ $comment->body }}<br>
+    @empty
+    <p>コメントはありません</p>
+    @endforelse
 
-
-
-<form method="post" action="{{ route('comments.save', ['post_id' => $post_detail->id]) }}">
-  @csrf
-  <input name="post_id" type="hidden" value="{{ $post_detail->id }}">
-  
-  <textarea name="body" placeholder="140字以内でコメントしてください" cols="30" rows="5">{{ old('comment') }}</textarea><br>
-  
-  <input type="submit" value="コメントする">
-</form>
+    <form method="post" action="{{ route('comments.save', ['post_id' => $post_detail->id]) }}">
+      @csrf
+      <input name="post_id" type="hidden" value="{{ $post_detail->id }}">
+      
+      <textarea name="body" placeholder="140字以内でコメントしてください" cols="30" rows="5">{{ old('comment') }}</textarea><br>
+      
+      <input type="submit" value="コメントする">
+    </form>
+  </div>
+</div>
 
 @endsection
