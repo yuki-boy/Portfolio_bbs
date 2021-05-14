@@ -32,4 +32,13 @@ class CommentController extends Controller
 
         return redirect()->route('posts.timeline')->with('success', 'コメントしました');
     }
+
+    public function CommentDelete($post_id, $user_id, $comment_id)
+    {
+        $comment_delete = Comment::find($comment_id);
+        $comment_delete->delete();
+
+        return redirect()->back()->with('success', 'コメントを削除しました');
+    }
+
 }

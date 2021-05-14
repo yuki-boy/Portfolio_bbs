@@ -1,6 +1,12 @@
 @extends('layouts.layout')
 @section('content')
 
+<!-- <div class="card m-4">
+  <div class="card-body">
+  
+  </div>
+</div> -->
+
 <form method="post" action="{{ route('comments.save', ['post_id' => $post_id]) }}">
   @csrf
   <input name="post_id" type="hidden" value="{{ $post_id }}">

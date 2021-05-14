@@ -20,11 +20,10 @@
     @if($post_detail->user_id == Auth::id())
     <a href="{{ route('posts.delete', ['post_id' => $post_detail->id]) }}" style="float: right;">
     <button type="button" class="btn btn-secondary btn-sm" onclick="return confirm('削除しますか？')">削除</button></a>
+    @endif
 
     <a href="{{ route('comments.create', ['post_id' => $post_detail->id]) }}">
     <button type="button" class="btn btn-secondary btn-sm">コメント</button></a>
-    @endif
-
   </div>
 </div>
 
@@ -32,8 +31,13 @@
 @forelse($post_detail->comments as $comment)
   <div class="card m-4">
     <div class="card-body">
-      {{ $comment->user->name }}
+      {{ $comment->user->name }}：
       {{ $comment->body }}
+
+      @if($comment->user_id == Auth::id())
+      <a href="{{ route('comments.delete', ['post_id' => $post_detail->id, 'user_id' => $comment->user_id, 'comment_id' => $comment->id]) }}">
+      <button type="button" class="btn btn-secondary btn-sm" style="float: right;">削除</button></a>
+      @endif
     </div>
   </div>
 @empty
