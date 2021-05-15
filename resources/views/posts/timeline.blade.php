@@ -15,7 +15,7 @@
 @foreach($allPost as $eachPost)
   <div class="card m-4">
     <div class="card-body">
-      {{ $eachPost->name }}<br>
+      <strong>{{ $eachPost->name }}</strong><br>
       {{ $eachPost->body }}<br>
 
     @if($eachPost->Like_Check())
