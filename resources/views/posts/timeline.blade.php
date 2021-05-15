@@ -15,7 +15,7 @@
 @foreach($allPost as $eachPost)
   <div class="card m-4">
     <div class="card-body">
-      {{ $eachPost->name }}<br>
+      <strong>{{ $eachPost->name }}</strong><br>
       {{ $eachPost->body }}<br>
 
     @if($eachPost->Like_Check())
@@ -23,7 +23,11 @@
     @else
       <a href="{{ route('like', ['post_id' => $eachPost->id, 'user_id' => $eachPost->user_id]) }}"><i class="fa fa-star" aria-hidden="true" style="color:grey"></i></a>
     @endif
+      {{ $eachPost->likes->count() }}
 
+      <a href="{{ route('comments.create', ['post_id' => $eachPost->id]) }}">
+      <i class="far fa-comment style"></i></a>
+      {{ $eachPost->comments->count() }}
 
       <a href="{{ route('posts.detail', ['post_id' => $eachPost->id]) }}">
       <button type="button" class="btn btn-secondary btn-sm" style="float: right;">詳細</button></a>
