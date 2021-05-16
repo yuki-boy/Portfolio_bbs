@@ -10,7 +10,7 @@
   </div>
 @endif
 
-<h2>ログインユーザー：{{ Auth::user()->name }}</h2>
+<h2 class="timeline_title">ログインユーザー：{{ Auth::user()->name }}</h2>
 
 @foreach($allPost as $eachPost)
   <div class="card m-4">
