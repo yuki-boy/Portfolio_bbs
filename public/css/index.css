@@ -1,0 +1,14 @@
+/* posts/timeline.blade.php */
+.timeline_title{
+  text-align: center;
+}
+
+/* postcreate.blade.php */
+.postcreate{
+  text-align: center;
+}
+
+/* commentcreate.blade.php */
+.commentcreate{
+  text-align: center;
+}

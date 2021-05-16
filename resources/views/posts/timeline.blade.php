@@ -2,7 +2,7 @@
 @section('content')
 
 @if(session('success'))
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
+  <div class="alert alert-success alert-dismissible fade show" role="alert" id="timeout">
   {{ session('success') }}
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
@@ -10,7 +10,7 @@
   </div>
 @endif
 
-<h2>ログインユーザー：{{ Auth::user()->name }}</h2>
+<h2 class="timeline_title">ログインユーザー：{{ Auth::user()->name }}</h2>
 
 @foreach($allPost as $eachPost)
   <div class="card m-4">
