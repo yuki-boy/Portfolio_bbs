@@ -52,7 +52,7 @@ class PostController extends Controller
     public function PostDelete($post_id)
     {
         $post_delete = PostRepository::deletePost($post_id);
-        
+
         return redirect()->route('posts.timeline')->with('success', '投稿を削除しました');
     }
 

@@ -16,7 +16,7 @@ class PostRepository
     return $getAllPost;
   }
 
-  public static function savePost(Request $request)
+  public static function savePost()
   {
     // save機能のコンポーネントの仕方がわからない
   }
