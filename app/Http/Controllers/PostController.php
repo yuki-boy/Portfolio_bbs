@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\LikeController;
 use App\Models\Post;
+use App\Repositories\PostRepository;
 use Illuminate\Support\Facades\Auth;
 use DB;
 use Validator;
@@ -14,10 +15,7 @@ class PostController extends Controller
 {
     public function Timeline()
     {
-        $allPost = Post::select('posts.id', 'posts.body', 'posts.user_id', 'users.name')
-        ->join('users','users.id','=','posts.user_id')
-        ->orderBy('posts.id','desc')
-        ->paginate();
+        $allPost = PostRepository::getAllPost();
 
         return view('posts.timeline', compact('allPost'));
     }
@@ -46,15 +44,15 @@ class PostController extends Controller
 
     public function PostDetail($post_id)
     {
-        $post_detail = Post::with('User')->find($post_id);
+        $post_detail = PostRepository::getDetailPost($post_id);
+
         return view('posts.detail',compact('post_detail'));
     }
 
     public function PostDelete($post_id)
     {
-        $post_delete = Post::find($post_id);
-        $post_delete->delete();
-        
+        $post_delete = PostRepository::deletePost($post_id);
+
         return redirect()->route('posts.timeline')->with('success', '投稿を削除しました');
     }
 

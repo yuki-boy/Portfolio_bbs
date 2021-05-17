@@ -14,6 +14,9 @@
     
     <textarea name="body" placeholder="140字以内でコメントしてください" cols="30" rows="5">{{ old('comment') }}</textarea><br>
     
+    @if ($errors->has('body'))
+    <span>{{ $errors->first('body') }}</span><br>
+    @endif
     <input type="submit" value="コメントする">
   </form>
 </div>
