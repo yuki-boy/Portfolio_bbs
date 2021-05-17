@@ -11,7 +11,6 @@ class CommentController extends Controller
 {
     public function CommentCreate($post_id)
     {
-        $post_id = $post_id;
         return view('posts.commentcreate',compact('post_id'));
     }
 
