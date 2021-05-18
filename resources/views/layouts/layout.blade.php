@@ -22,6 +22,7 @@
     <link href="{{ asset('css/index.css') }}" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet">
 </head>
+
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">

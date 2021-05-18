@@ -8,7 +8,7 @@ class PostRepository
 {
   public static function getAllPost()
   {
-    $getAllPost = Post::select('posts.id', 'posts.body', 'posts.user_id', 'users.name')
+    $getAllPost = Post::select('posts.id', 'posts.body', 'posts.user_id', 'posts.created_at','users.name')
       ->join('users','users.id','=','posts.user_id')
       ->orderBy('posts.id','desc')
       ->paginate(50);
@@ -35,16 +35,7 @@ class PostRepository
     return $deletePost->delete();
   }
 
-  
-
-
-
 
 }
-
-
-
-
-
 
 ?>
