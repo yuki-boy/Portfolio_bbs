@@ -47,4 +47,5 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/like/{post_id}', [LikeController::class, 'Like'])->name('like');
     Route::get('/unlike/{post_id}', [LikeController::class, 'Unlike'])->name('unlike');
 
+    
 });

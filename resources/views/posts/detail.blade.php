@@ -36,7 +36,7 @@
 
       @if($comment->user_id == Auth::id())
       <a href="{{ route('comments.delete', ['post_id' => $post_detail->id, 'user_id' => $comment->user_id, 'comment_id' => $comment->id]) }}">
-      <button type="button" class="btn btn-secondary btn-sm" style="float: right;">削除</button></a>
+      <button type="button" class="btn btn-secondary btn-sm" style="float: right;" onclick="return confirm('削除しますか？')">削除</button></a>
       @endif
     </div>
   </div>
