@@ -35,16 +35,7 @@ class PostRepository
     return $deletePost->delete();
   }
 
-  
-
-
-
 
 }
-
-
-
-
-
 
 ?>
