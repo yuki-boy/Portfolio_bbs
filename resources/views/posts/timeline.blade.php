@@ -15,7 +15,9 @@
 @foreach($allPost as $eachPost)
   <div class="card m-4">
     <div class="card-body">
-      <strong>{{ $eachPost->name }}</strong><br>
+      <strong>{{ $eachPost->name }}</strong>
+      <p style="float: right;">{{ $eachPost->created_at->diffForHumans() }}</p><br>
+
       {{ $eachPost->body }}<br>
 
     @if($eachPost->Like_Check())
