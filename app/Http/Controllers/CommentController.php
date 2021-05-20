@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Comment;
+use App\Repositories\CommentRepository;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -11,7 +12,6 @@ class CommentController extends Controller
 {
     public function CommentCreate($post_id)
     {
-        $post_id = $post_id;
         return view('posts.commentcreate',compact('post_id'));
     }
 
@@ -35,8 +35,7 @@ class CommentController extends Controller
 
     public function CommentDelete($post_id, $user_id, $comment_id)
     {
-        $comment_delete = Comment::find($comment_id);
-        $comment_delete->delete();
+        $comment_delete = CommentRepository::deleteComment($comment_id);
 
         return redirect()->back()->with('success', 'コメントを削除しました');
     }
