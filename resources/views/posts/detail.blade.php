@@ -27,7 +27,7 @@
   </div>
 </div>
 
-<h2>コメント</h2>
+<h2 class="comment_title">コメント</h2>
 @forelse($post_detail->comments as $comment)
   <div class="card m-4">
     <div class="card-body">
@@ -41,7 +41,7 @@
     </div>
   </div>
 @empty
-  <p>コメントはありません</p>
+  <p class="comment_title">コメントはありません</p>
 @endforelse
 
 @endsection
