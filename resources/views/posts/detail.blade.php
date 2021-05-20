@@ -18,8 +18,9 @@
     投稿：{{ $post_detail->body }}<br>
 
     @if($post_detail->user_id == Auth::id())
-    <a href="{{ route('posts.delete', ['post_id' => $post_detail->id]) }}" style="float: right;">
-    <button type="button" class="btn btn-secondary btn-sm" onclick="return confirm('削除しますか？')">削除</button></a>
+    <!-- <a href="{{ route('posts.delete', ['post_id' => $post_detail->id]) }}" style="float: right;">
+    <button type="button" class="btn btn-secondary btn-sm" onclick="return confirm('削除しますか？')">削除</button></a> -->
+    <button type="button" class="btn btn-secondary btn-sm" id="open" style="float: right;">削除</button>
     @endif
 
     <a href="{{ route('comments.create', ['post_id' => $post_detail->id]) }}">
@@ -43,5 +44,19 @@
 @empty
   <p class="comment_title">コメントはありません</p>
 @endforelse
+
+<!-- モーダルウィンドウ -->
+<section id="modal" class="hidden">
+  <p>モーダルモーダルモーダルモーダルモーダル</p>
+  <div id ="close">
+    <a href="" style="float: left;">
+    <button type="button" class="btn btn-secondary btn-sm">キャンセル</button></a>
+  </div>
+  <div id ="close">
+    <a href="{{ route('posts.delete', ['post_id' => $post_detail->id]) }}" style="float: right;">
+    <button type="button" class="btn btn-secondary btn-sm">削除する</button></a>
+  </div>
+</section>
+<!-- モーダルウィンドウ -->
 
 @endsection

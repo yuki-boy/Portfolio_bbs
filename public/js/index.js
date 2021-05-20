@@ -6,3 +6,18 @@ $(document).ready(function() {
  });
  $("#timeout").fadeOut();
 });
+
+// モーダルウィンドウ
+'use strict';
+{
+  const open = document.getElementById('open')
+
+  open.addEventListener('click', () => {
+    modal.classList.remove('hidden');
+  });
+
+
+
+
+}
+
