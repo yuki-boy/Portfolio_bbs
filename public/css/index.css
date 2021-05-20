@@ -1,6 +1,11 @@
 /* posts/timeline.blade.php */
 .timeline_title{
   text-align: center;
+  padding-top: 1.5rem;
+}
+
+.alert{
+  z-index: 20px;
 }
 
 /* postcreate.blade.php */

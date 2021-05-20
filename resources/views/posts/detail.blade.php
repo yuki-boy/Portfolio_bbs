@@ -31,7 +31,7 @@
 @forelse($post_detail->comments as $comment)
   <div class="card m-4">
     <div class="card-body">
-      {{ $comment->user->name }}：
+      <strong>{{ $comment->user->name }}</strong><br>
       {{ $comment->body }}
 
       @if($comment->user_id == Auth::id())
