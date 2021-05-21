@@ -25,10 +25,6 @@
 
     <a href="{{ route('comments.create', ['post_id' => $post_detail->id]) }}">
     <button type="button" class="btn btn-secondary btn-sm">コメント</button></a>
-
-    @if($post_detail->user_id == Auth::id())
-    <a href="{{ route('posts.delete', ['post_id' => $post_detail->id]) }}"><button type="button" class="btn btn-secondary btn-sm" id="open" style="float: right;" onclick="return confirm('削除しますか？')">削除</button></a>
-    @endif
   </div>
 </div>
 
@@ -40,9 +36,7 @@
       {{ $comment->body }}
 
       @if($comment->user_id == Auth::id())
-      <!-- <a href="{{ route('comments.delete', ['post_id' => $post_detail->id, 'user_id' => $comment->user_id, 'comment_id' => $comment->id]) }}">
-      <button type="button" class="btn btn-secondary btn-sm" style="float: right;" onclick="return confirm('削除しますか？')">削除</button></a> -->
-      <button type="button" class="btn btn-secondary btn-sm" id="c_open" style="float: right;">削除</button>
+      <button type="button" class="btn btn-secondary btn-sm" id="c_open" style="float: right;">コメント削除</button>
       @endif
     </div>
   </div>
