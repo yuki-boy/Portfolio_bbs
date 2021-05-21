@@ -57,6 +57,8 @@
     <button type="button" class="btn btn-secondary btn-sm">削除する</button></a>
   </div>
 </section>
+
+<div id= "covor" class= "hidden"></div>
 <!-- モーダルウィンドウ -->
 
 @endsection
