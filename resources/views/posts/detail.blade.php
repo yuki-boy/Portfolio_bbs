@@ -17,45 +17,31 @@
     投稿時間：{{ $post_detail->created_at }}<br>
     投稿：{{ $post_detail->body }}<br>
 
+    @if($post_detail->user_id == Auth::id())
+    <a href="{{ route('posts.delete', ['post_id' => $post_detail->id]) }}" style="float: right;">
+    <button type="button" class="btn btn-secondary btn-sm" onclick="return confirm('削除しますか？')">削除</button></a>
+    @endif
+
     <a href="{{ route('comments.create', ['post_id' => $post_detail->id]) }}">
     <button type="button" class="btn btn-secondary btn-sm">コメント</button></a>
-
-    @if($post_detail->user_id == Auth::id())
-    <a href="{{ route('posts.delete', ['post_id' => $post_detail->id]) }}"><button type="button" class="btn btn-secondary btn-sm" id="open" style="float: right;" onclick="return confirm('削除しますか？')">削除</button></a>
-    @endif
   </div>
 </div>
 
-<h2>コメント</h2>
+<h2 class="comment_title">コメント</h2>
 @forelse($post_detail->comments as $comment)
   <div class="card m-4">
     <div class="card-body">
-      {{ $comment->user->name }}：
+      <strong>{{ $comment->user->name }}</strong><br>
       {{ $comment->body }}
 
       @if($comment->user_id == Auth::id())
-      <a href="{{ route('comments.delete', ['post_id' => $post_detail->id, 'user_id' => $comment->user_id, 'comment_id' => $comment->id]) }}">
-      <button type="button" class="btn btn-secondary btn-sm" style="float: right;" onclick="return confirm('削除しますか？')">削除</button></a>
+      <a href="{{ route('comments.delete', ['post_id' => $post_detail->id, 'user_id' => $comment->user_id, 'comment_id' => $comment->id]) }}" style="float: right;" onclick="return confirm('削除しますか？')">
+      <button type="button" class="btn btn-secondary btn-sm">削除する</button></a>
       @endif
     </div>
   </div>
 @empty
-  <p>コメントはありません</p>
+  <p class="comment_title">コメントはありません</p>
 @endforelse
-
-<!-- モーダルウィンドウ -->
-<!-- <section id="modal" class="hidden">
-  <p>こんにちは。こんにちは。こんにちは。こんにちは。こんにちは。こんにちは。こんにちは。こんにちは。こんにちは。こんにちは。</p>
-  <div id ="close">
-    キャンセル
-  </div>
-
-  <a href="{{ route('posts.delete', ['post_id' => $post_detail->id]) }}"><div id="close">
-    削除
-  </div></a>
-
-</section>
-<div id="mask" class="hidden"></div> -->
-<!-- モーダルウィンドウ -->
 
 @endsection
