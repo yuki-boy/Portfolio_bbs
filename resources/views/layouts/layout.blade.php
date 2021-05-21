@@ -95,7 +95,8 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+                @include('layouts.sidebar')
+                @yield('content')
         </main>
     </div>
 
