@@ -23,7 +23,7 @@
 }
 
 /* 投稿のモーダルウィンドウ */
-#covor {
+/* #covor {
   background-color: rgba(0,0,0,0.4);
   position: fixed;
   top: 0;
@@ -31,9 +31,9 @@
   right: 0;
   left: 0;
   z-index: 1;
-}
+} */
 
-#covor.hidden {
+/* #covor.hidden {
   display: none;
 }
 
@@ -53,10 +53,10 @@
 
 #modal.hidden{
   transform: translate(0, -500px);
-}
+} */
 
 /* コメントのモーダルウィンドウ */
-#c_covor {
+/* #c_covor {
   background-color: rgba(0,0,0,0.4);
   position: fixed;
   top: 0;
@@ -86,4 +86,4 @@
 
 #c_modal.c_hidden{
   transform: translate(0, -500px);
-}
+} */

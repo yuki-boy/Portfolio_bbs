@@ -18,9 +18,8 @@
     投稿：{{ $post_detail->body }}<br>
 
     @if($post_detail->user_id == Auth::id())
-    <!-- <a href="{{ route('posts.delete', ['post_id' => $post_detail->id]) }}" style="float: right;">
-    <button type="button" class="btn btn-secondary btn-sm" onclick="return confirm('削除しますか？')">削除</button></a> -->
-    <button type="button" class="btn btn-secondary btn-sm" id="open" style="float: right;">削除</button>
+    <a href="{{ route('posts.delete', ['post_id' => $post_detail->id]) }}" style="float: right;">
+    <button type="button" class="btn btn-secondary btn-sm" onclick="return confirm('削除しますか？')">削除</button></a>
     @endif
 
     <a href="{{ route('comments.create', ['post_id' => $post_detail->id]) }}">
@@ -36,46 +35,13 @@
       {{ $comment->body }}
 
       @if($comment->user_id == Auth::id())
-      <button type="button" class="btn btn-secondary btn-sm" id="c_open" style="float: right;">コメント削除</button>
+      <a href="{{ route('comments.delete', ['post_id' => $post_detail->id, 'user_id' => $comment->user_id, 'comment_id' => $comment->id]) }}" style="float: right;" onclick="return confirm('削除しますか？')">
+      <button type="button" class="btn btn-secondary btn-sm">削除する</button></a>
       @endif
     </div>
   </div>
 @empty
   <p class="comment_title">コメントはありません</p>
 @endforelse
-
-<!-- 投稿のモーダルウィンドウ -->
-<section id="modal" class="hidden">
-  <p>投稿を削除しますか？</p>
-  <div id ="close">
-    <button type="button" class="btn btn-secondary btn-sm" style="float: left;">キャンセル</button>
-  </div>
-  <div id ="close">
-    <a href="{{ route('posts.delete', ['post_id' => $post_detail->id]) }}" style="float: right;">
-    <button type="button" class="btn btn-secondary btn-sm">削除する</button></a>
-  </div>
-</section>
-
-<div id="covor" class="hidden"></div>
-<!-- 投稿のモーダルウィンドウ -->
-
-<!-- コメントのモーダルウィンドウ -->
-@foreach($post_detail->comments as $comment)
-<section id="c_modal" class="c_hidden">
-  <p>コメントを削除しますか？</p>
-  <div id ="c_close">
-    <button type="button" class="btn btn-secondary btn-sm" style="float: left;">キャンセル</button>
-  </div>
-
-  <div id ="c_close">
-    <a href="{{ route('comments.delete', ['post_id' => $post_detail->id, 'user_id' => $comment->user_id, 'comment_id' => $comment->id]) }}" style="float: right;">
-    <button type="button" class="btn btn-secondary btn-sm">削除する</button></a>
-  </div>
-</section>
-
-<div id="c_covor" class="c_hidden"></div>
-@endforeach
-<!-- コメントのモーダルウィンドウ -->
-
 
 @endsection
