@@ -7,7 +7,7 @@ $(document).ready(function() {
  $("#timeout").fadeOut();
 });
 
-// モーダルウィンドウ
+// 投稿のモーダルウィンドウ
 'use strict';
 {
   const open = document.getElementById('open')
@@ -28,7 +28,28 @@ $(document).ready(function() {
   covor.addEventListener('click', () => {
     close.click();
   });
+}
 
+// 投稿のモーダルウィンドウ
+'use strict';
+{
+  const c_open = document.getElementById('c_open')
+  const c_close = document.getElementById('c_close')
+  const c_modal = document.getElementById('c_modal')
+  const c_covor = document.getElementById('c_covor')
 
+  c_open.addEventListener('click', () => {
+    c_modal.classList.remove('c_hidden');
+    c_covor.classList.remove('c_hidden');
+  });
+
+  c_close.addEventListener('click', () => {
+    c_modal.classList.add('c_hidden');
+    c_covor.classList.add('c_hidden');
+  });
+
+  c_covor.addEventListener('click', () => {
+    c_close.click();
+  });
 }
 

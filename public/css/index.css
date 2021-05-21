@@ -22,9 +22,7 @@
   text-align: center;
 }
 
-
-
-
+/* 投稿のモーダルウィンドウ */
 #covor {
   background-color: rgba(0,0,0,0.4);
   position: fixed;
@@ -54,5 +52,38 @@
 }
 
 #modal.hidden{
+  transform: translate(0, -500px);
+}
+
+/* コメントのモーダルウィンドウ */
+#c_covor {
+  background-color: rgba(0,0,0,0.4);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+
+#c_covor.c_hidden {
+  display: none;
+}
+
+#c_modal {
+  background: #fff;
+  width: 300px;
+  padding: 20px;
+  border-radius: 4px;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  transition: transform 0.4s;
+  z-index: 2;
+}
+
+#c_modal.c_hidden{
   transform: translate(0, -500px);
 }
