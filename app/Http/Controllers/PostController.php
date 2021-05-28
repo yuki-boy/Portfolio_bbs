@@ -16,7 +16,7 @@ class PostController extends Controller
     public function Timeline()
     {
         $allPost = PostRepository::getAllPost();
-
+        
         return view('posts.timeline', compact('allPost'));
     }
 
